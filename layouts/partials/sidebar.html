@@ -1,0 +1,14 @@
+<div>
+    <nav class="level">
+        <div class="level-item has-text-centered has-background-white-ter">
+            <figure class="image is-128x128">
+                <img class="is-rounded" src="{{ .Site.BaseURL }}{{ .Site.Params.avatar }}" alt="">
+            </figure>
+        </div>
+    </nav>
+    <hr>
+
+    {{ partial "widgets/about-me.html" . }}
+
+    {{ partial "widgets/recent-posts.html" . }}
+</div>

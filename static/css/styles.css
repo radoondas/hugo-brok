@@ -1,0 +1,38 @@
+html {
+  font-size: 100%;
+}
+
+/*body {*/
+/*  font-family: 'Lato', sans-serif;*/
+/*}*/
+
+/* .title, .subtitle {
+  font-family: 'Raleway', sans-serif;
+} */
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fa-linkedin {
+    color: #2867B2;
+}
+
+.fa-twitter {
+    color: #00acee;
+}
+
+.fa-github {
+    color: #333;
+}
+
+.fa-at {
+    color: #333;
+}
+
+/*hr {*/
+/*    !*border: 1px solid #F57A00;*!*/
+/*    border: 1px solid #F57A00;*/
+/*}*/

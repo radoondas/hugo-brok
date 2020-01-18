@@ -1,0 +1,53 @@
+<!-- <div class=container> -->
+<footer class="footer has-background-grey-lighter">
+    <div class="container">
+        <div class="content">
+            <div class="columns">
+                <div class="column">
+                    <h1 class="title has-text-grey-darker is-5">Categories</h1>
+                    {{ partial "widgets/categories.html" . }}
+                </div>
+
+                <div class="column">
+                    <h1 class="title has-text-grey-darker is-5">Tags</h1>
+                    {{ partial "widgets/tags.html" . }}
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<footer class="footer has-background-black is-paddingless">
+    <div class="container">
+        <div class="content">
+            <div class="has-text-centered ">
+                <p class="has-text-grey-lighter">
+                    This website was created by {{ .Site.Params.Name }} and is powered by: <a class="has-text-white-bis"
+                                                                                              href="https://gohugo.io/"
+                                                                                              rel="external">Hugo</a>
+                    and <a class="has-text-white-bis" href="https://bulma.io/" rel="external">Bulma</a>
+                </p>
+                <p class="has-text-grey-lighter">
+                    Copyright &copy; {{ .Site.Params.year }}, {{ .Site.Params.name }}</p>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- </div> -->
+<!--
+<script src="{{ .Site.BaseURL }}js/template.js"></script>
+-->
+{{ if .Site.Params.disqus -}}
+<script id="dsq-count-scr" src="//{{ .Site.Params.disqus.site }}/count.js" async></script>
+{{ end }}
+
+{{ if .Site.Params.elasticSiteSearch.enable }}
+{{ .Site.Params.elasticSiteSearch.script | safeHTML}}
+{{ end }}
+
+{{ if .Site.Params.google.analytics -}}
+{{ partial "analyticstracking.html" . }}
+{{ end }}
+</body>
+</html>

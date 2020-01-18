@@ -1,0 +1,15 @@
+<div class="content">
+    <h1 class="title has-text-link is-5" style="font-family: 'Cutive Mono', monospace;">Recent posts</h1>
+
+    {{ range first 4 (where .Site.Pages "Section" "posts") }}
+    <!-- <h1 class="title is-6">
+        <a class="has-text-grey-dark" href="{{ .Permalink }}">{{ .Title }}</a>
+    </h1> -->
+    <a class="has-text-info" href="{{ .Permalink }}">{{ .Title }}</a>, <small>{{ .Date.Format .Site.Params.DateForm }}</small><br>
+    <!-- {{ if isset .Params "author" }}
+    <strong>Author:</strong> <a href="#">{{ .Params.Author }}</a>
+    <br>
+    {{ end }} -->
+    {{ end }}
+</div>
+<hr>

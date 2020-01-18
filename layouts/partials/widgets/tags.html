@@ -1,0 +1,18 @@
+{{ if .Site.Params.widgets.tags }}
+{{ if isset .Site.Taxonomies "tags" }}
+{{ if not (eq (len .Site.Taxonomies.tags) 0) }}
+<div class="content">
+    <div class="field is-grouped is-grouped-multiline">
+        {{ range $name, $tags := .Site.Taxonomies.tags }}
+        <div class="control">
+            <div class="tags are-small has-addons">
+                <a class="tag" href="{{ $.Site.BaseURL }}tags/{{ $name | urlize | lower }}">{{ $name }}</a>
+                <span class="tag is-info">{{ len $tags }}</span>
+            </div>
+        </div>
+        {{ end }}
+    </div>
+</div>
+{{ end }}
+{{ end }}
+{{ end }}
