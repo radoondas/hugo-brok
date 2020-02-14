@@ -1,9 +1,22 @@
 {{ partial "header.html" . }}
 
-<main>
+<main class="Site-content">
     <section class="section">
         <div class="container">
-            {{ .Content }}
+            <div class="columns">
+                <div class="column is-three-quarters">
+<!--                    Featured post-->
+                    {{ range first 2 (where .Site.Pages.ByDate.Reverse "Params.featured" true) }}
+                    <a href="{{ .Permalink }}"><h1> {{ .Title }}</h1></a>
+                    {{ end }}
+
+                    <hr>
+                    {{ .Content }}
+                </div>
+                <div class="box">
+                    {{- partial "sidebar.html" . -}}
+                </div>
+            </div>
         </div>
     </section>
 </main>

@@ -11,29 +11,18 @@
     <link rel="shortcut icon" href="{{ .Site.BaseURL }}{{ .Site.Params.favicon }}">
 
     <!-- To go back to default Bulma CSS uncomment following line and comment out custom hugo-brok CSS. -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"> -->
+    <!--    <link rel="stylesheet" href="{{ .Site.BaseURL }}css/bulmaswatch-journal.min.css">-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
 
     <!-- This is customized CSS based on Bulma. Check sass directory for customization details. -->
     <!-- <link rel="stylesheet" href="{{ .Site.BaseURL }}css/bulma-brok.css"> -->
-    <!-- <link rel="stylesheet" href="{{ .Site.BaseURL }}css/bulmaswatch-sandstone.css"> -->
-    <!-- <link rel="stylesheet" href="{{ .Site.BaseURL }}css/bulmaswatch-spacelab.min.css"> -->
-    <!-- <link rel="stylesheet" href="{{ .Site.BaseURL }}css/bulmaswatch-simplex.min.css"> -->
-    <!-- <link rel="stylesheet" href="{{ .Site.BaseURL }}css/bulmaswatch-litera.min.css"> -->
-    <!-- <link rel="stylesheet" href="{{ .Site.BaseURL }}css/bulmaswatch-flatly.min.css"> -->
-    <!-- <link rel="stylesheet" href="{{ .Site.BaseURL }}css/bulmaswatch-lux.min.css"> -->
-    <!-- <link rel="stylesheet" href="{{ .Site.BaseURL }}css/bulmaswatch-materia.min.css"> -->
-    <!-- <link rel="stylesheet" href="{{ .Site.BaseURL }}css/bulmaswatch-light-and-shadiw.min.css"> -->
-    <!-- <link rel="stylesheet" href="{{ .Site.BaseURL }}css/bulmaswatch-yeti.min.css"> -->
-    <link rel="stylesheet" href="{{ .Site.BaseURL }}css/bulmaswatch-journal.min.css">
 
     <!-- Icons Fontawesome -->
     <script src="https://kit.fontawesome.com/808b1fbf24.js" crossorigin="anonymous"></script>
 
     <!-- Fonts are set in custom CSS -->
-    <link href="https://fonts.googleapis.com/css?family=Cutive+Mono|Fontdiner+Swanky|Roboto&display=swap"
-          rel="stylesheet">
-    <!-- <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Raleway:400,700|Source+Code+Pro|Fontdiner+Swanky&display=swap" rel="stylesheet"> -->
-    <!-- <link href="https://fonts.googleapis.com/css?family=Fontdiner+Swanky&display=swap" rel="stylesheet"> -->
+<!--    <link href="https://fonts.googleapis.com/css?family=Cutive+Mono|Fontdiner+Swanky|Roboto&display=swap" rel="stylesheet">-->
+    <link type="text/css" href="https://fonts.googleapis.com/css?family=Cutive+Mono|Open+Sans:300,400,600" rel="stylesheet" class="next-head"/>
 
     <!-- Custom styles  -->
     <link rel="stylesheet" href="{{ .Site.BaseURL }}css/styles.css">
@@ -41,11 +30,16 @@
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script> <![endif]-->
 
-    {{ if .Site.Params.Sharethis.enabled }}
+    {{- if .Site.Params.Sharethis.enabled }}
     <script type='text/javascript'
             src='//platform-api.sharethis.com/js/sharethis.js#property={{ .Site.Params.sharethis.property }}&product=inline-share-buttons'
-            async='async'></script>
+            async='async'>
+    </script>
     {{ end }}
+
+    {{- with .OutputFormats.Get "rss" -}}
+    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+    {{ end -}}
 
     <!-- For clipboard copying -- use for blog posts only? -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script> -->
@@ -53,68 +47,45 @@
     <!-- debug css -->
     <!-- <link rel="stylesheet" href="{{ .Site.BaseURL }}css/debug.css"> -->
 
-    <!-- menu js -->
-    <script src="{{ .Site.BaseURL }}js/menu.js"></script>
-
+    <script src="{{ .Site.BaseURL }}js/main.js"></script>
 </head>
 
-<body>
+<body class="Site">
 <header>
-    <!-- <div class=container> -->
     <section class="hero">
         <div class="hero-head has-background-grey-lighter">
             <div class="container">
                 <!-- <div class="content"> -->
                 <nav class="navbar">
-                    <!-- <div class="container"> -->
-                    <!-- <div class="navbar-brand">
-                        <a class="navbar-item">
-                            <img src="{{ .Site.BaseURL }}{{ .Site.Params.logo }}" alt="{{ .Title }}">
-                        </a>
-                    </div> -->
-                    {{ if .Site.Params.headerEnableFollowme }}
+                    {{ if .Site.Params.headerEnableFollowme -}}
                     <div class="navbar-menu">
-                        {{ if .Site.Params.elasticSiteSearch.enable }}
+                        {{- if .Site.Params.elasticSiteSearch.enable -}}
                         <div class="navbar-item navbar-start">
-                            <input type="text" class="input is-danger is-small st-default-search-input"
+                            <input type="text" class="input is-link is-small st-default-search-input"
                                    autocomplete="off" autocorrect="off" autocapitalize="off">
                         </div>
                         {{ end }}
                         <div class="navbar-end">
-                            {{ range .Site.Params.social }}
-                            <a class="navbar-item" href="{{ .url }}" target="_blank"><i
-                                    class="{{ .icon }} fa-1x"></i></a>
-                            {{ end }}
+                            {{ range .Site.Params.social -}}
+                            <a class="navbar-item" href="{{ .url }}" target="_blank"><i class="{{ .icon }} fa-1x"></i></a>
+                            {{ end -}}
                         </div>
                     </div>
                     {{ end }}
                 </nav>
             </div>
         </div>
-        <!-- </div> -->
 
         <div class="hero-body has-background-grey-lighter">
             <div class="container has-text-centered">
                 <a class="has-text-centered">
                     <img src="{{ .Site.BaseURL }}/images/radoondas.io.png" alt="radoondas.io">
                 </a>
-
-                <!-- <h1 class="has-text-centered"> -->
-                <!-- <span class="title" style="font-family: 'Raleway', sans-serif;" >{{ .Site.Title }}</span><br> -->
-                <!-- <span class="title is-family-code" style="font-family: 'Lato', sans-serif;" >{{ .Site.Title }}</span><br>
-                <span class="title is-family-secondary" style="font-family: 'Source Code Pro', monospace;">{{ .Site.Title }}</span><br> -->
-                <!-- <span class="subtitle" style="font-family: 'Raleway', sans-serif;">{{ .Site.Params.description }}<br> -->
-                <!-- <a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a> -->
-                <!-- </span> -->
-                <!-- </h1> -->
             </div>
         </div>
         <!-- Hero footer: will stick at the bottom -->
         <div class="hero-foot has-background-grey-light">
-            <!-- <nav class="tabs is-boxed"> -->
             {{ partial "menu.html" . }}
-            <!-- </nav> -->
         </div>
     </section>
-    <!-- </div> -->
 </header>

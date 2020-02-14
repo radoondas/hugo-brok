@@ -1,23 +1,40 @@
 <div class="container">
-    <nav id="navbar" class="navbar has-shadow tabs is-boxed " role="navigation" aria-label="main navigation">
-        <!-- <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample"> -->
+    <nav id="navbar" class="navbar has-shadow is-boxed">
         <div class="navbar-brand">
-            <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
+            <a class="navbar-item" href="https:radoondas.io">
+                <img src="{{ .Site.BaseURL }}{{ .Site.Params.favicon }}" alt="text">
             </a>
+            <div class="navbar-burger burger" data-target="navMenu" >
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
 
         <div class="navbar-menu is-size-5" id="navMenu">
             <div class="navbar-start">
                 {{ range .Site.Menus.main }}
-                <a class="navbar-item" style="font-family: 'Cutive Mono', monospace;" href="{{ .URL }}">{{ .Name }}</a>
+                <a class="navbar-item has-text-grey-darker has-text-weight-bold" style="font-family: 'Cutive Mono', monospace;" href="{{ .URL }}">{{ .Name }}</a>
                 {{end}}
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a  class="navbar-link has-text-grey-darker has-text-weight-bold" style="font-family: 'Cutive Mono', monospace;">
+                        BEATS
+                    </a>
+                    <div class="navbar-dropdown is-boxed">
+                        {{ range .Site.Menus.dropdown }}
+                        <a class="navbar-item has-text-grey-darker has-text-weight-bold" style="font-family: 'Cutive Mono', monospace;" href="{{ .URL }}">{{ .Name }}</a>
+                        {{end}}
+<!--                        <hr class="navbar-divider">-->
+<!--                        <a class="navbar-item has-text-grey-darker has-text-weight-bold" style="font-family: 'Cutive Mono', monospace;">-->
+<!--                            Report an issue-->
+<!--                        </a>-->
+                    </div>
+                </div>
             </div>
+
             <div class="navbar-end">
-                <a class="navbar-item" style="font-family: 'Cutive Mono', monospace;" href="/tags/">Tags</a>
-                <a class="navbar-item" style="font-family: 'Cutive Mono', monospace;" href="/categories/">Categories</a>
+                <a class="navbar-item has-text-grey-darker has-text-weight-bold" style="font-family: 'Cutive Mono', monospace;" href="/tags/">Tags</a>
+                <a class="navbar-item has-text-grey-darker has-text-weight-bold" style="font-family: 'Cutive Mono', monospace;" href="/categories/">Categories</a>
             </div>
         </div>
     </nav>

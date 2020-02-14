@@ -1,0 +1,57 @@
+<div class="box has-background-white-ter">
+    <article class="media">
+        <div class="media-content">
+            <div class="content">
+                <h1 class="title is-4" style="font-family: 'Cutive Mono', monospace;"><a
+                        class="has-text-info" href="{{ .Permalink }}">{{- .Title -}}</a></h1>
+                <!-- <strong>Author: {{ .Params.Author }}</strong> <br> -->
+                <hr class="is-marginless">
+                <table class="table is-narrow">
+                    <tr>
+                        <div class="columns is-marginless is-small">
+                            <div class="column is-narrow">
+                                <i class="far fa-calendar-alt fa-1x has-text-link">&nbsp;&nbsp;</i>
+                                <time date="{{ .Date }}">{{- dateFormat .Site.Params.DateForm .Date -}}
+                                </time>
+                            </div>
+                            <div class="column is-narrow">
+                                <i class="far fa-folder-open fa-1x has-text-link">&nbsp;&nbsp;</i>~/{{- with .File -}}{{- .Dir -}}{{- end -}}
+                            </div>
+                            <div class="column is-narrow">
+                                <i class="far fa-clock fa-1x has-text-link">&nbsp;&nbsp;</i>Reading {{ .ReadingTime }} min.
+                            </div>
+                            {{- if .Params.Comments -}}
+                            <div class="column is-narrow">
+                                <i class="far fa-comments fa-1x has-text-link">&nbsp;&nbsp;</i><a
+                                    href="{{ .Permalink }}#disqus_thread"></a>
+                            </div>
+                            {{- end -}}
+                        </div>
+                    </tr>
+                    <tr>
+                        <div class="columns is-marginless is-small">
+                            {{- if .Params.Tags -}}
+                            <div class="column is-narrow">
+                                <i class="fas fa-hashtag fa-1x has-text-link">&nbsp;&nbsp;</i>
+                                {{- range .Params.tags }} <a class="tag is-success is-light" href="{{ "/tags/" | relLangURL }}{{- . | urlize -}}">{{- . -}}</a>{{- end -}}
+                            </div>
+                            {{- end -}}
+                            {{- if .Params.Categories -}}
+                            <div class="column is-narrow">
+                                <i class="far fa-folder fa-1x has-text-link">&nbsp;&nbsp;</i>
+                                {{- range .Params.categories }} <a class="tag is-primary is-light" href="{{ "/categories/" | relLangURL }}{{- . | urlize }}">{{- . -}}</a>{{- end -}}
+                            </div>
+                            {{- end -}}
+
+                        </div>
+                    </tr>
+                </table>
+                <hr class="is-marginless">
+            </div>
+
+            <div class="content">
+                {{- .Summary -}}
+            </div>
+        </div>
+    </article>
+</div>
