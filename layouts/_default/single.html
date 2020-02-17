@@ -6,56 +6,55 @@
             <div class="columns">
                 <div class="column is-three-quarters">
                     <!-- <div class="box"> -->
-                        <article class="media">
-                            <div class="media-content">
-                                <div class="content">
-                                    <h1 class="title is-2 has-text-info" style="font-family: 'Cutive Mono', monospace;" >{{ .Title }}</h1>
-<!--                                    <strong>Author: {{ .Params.Author }}</strong> <br>-->
-                                    <strong>Author:</strong> {{ .Params.Author }} <br>
-                                    <hr class="is-marginless">
-<!--                                    <div class="is-divider" data-content="OR"></div>-->
+                    <article class="media">
+                        <div class="media-content">
+                            <div class="content">
+                                <h1 class="title is-2 has-text-info" style="font-family: 'Cutive Mono', monospace;" >{{ .Title }}</h1>
+                                <!--                                    <strong>Author: {{ .Params.Author }}</strong> <br>-->
+                                <strong>Author:</strong> {{ .Params.Author }} <br>
+                                <hr class="is-marginless">
 
-                                    <div class="columns is-1 is-size-6 is-marginless">
-                                        <div class="column is-narrow">
-                                            <i class="fas fa-clock fa-1x has-text-primary">&nbsp;&nbsp;</i>Reading {{ .ReadingTime }}
-                                            minutes
-                                        </div>
-                                        <div class="column is-narrow">
-                                            <i class="fas fa-calendar-alt fa-1x has-text-primary">&nbsp;&nbsp;</i><time date="{{ .Date }}">{{ dateFormat .Site.Params.DateForm .Date }}</time>
-                                        </div>
-                                        {{ if .Params.Comments }}
-                                        <div class="column is-narrow">
-                                            <i class="fas fa-comments fa-1x has-text-primary">&nbsp;&nbsp;</i><a href="{{ .Permalink }}#disqus_thread">Link</a>
-                                        </div>
-                                        {{ end }}
+                                <div class="columns is-1 is-size-6 is-marginless">
+                                    <div class="column is-narrow">
+                                        <i class="fas fa-clock fa-1x has-text-primary">&nbsp;&nbsp;</i>Reading {{ .ReadingTime }}
+                                        minutes
                                     </div>
-                                    <hr class="is-marginless">
-                                </div>
-
-                                {{ if .Params.categories }}
-                                <div class="tags">
-                                    {{ range .Params.categories }}
-                                    <span class="tag is-warning is-light">{{ . }}</span>
+                                    <div class="column is-narrow">
+                                        <i class="fas fa-calendar-alt fa-1x has-text-primary">&nbsp;&nbsp;</i><time date="{{ .Date }}">{{ dateFormat .Site.Params.DateForm .Date }}</time>
+                                    </div>
+                                    {{ if .Params.Comments }}
+                                    <div class="column is-narrow">
+                                        <i class="fas fa-comments fa-1x has-text-primary">&nbsp;&nbsp;</i><a href="{{ .Permalink }}#disqus_thread">Link</a>
+                                    </div>
                                     {{ end }}
-                                    {{range .Params.tags}}
-                                    <span class="tag is-success is-light">{{ . }}</span>
-                                    {{end}}
-                                    
                                 </div>
-                                {{ end }}
-                                <div class="content ">
-                                    {{ if .Params.Share }}
-                                        {{ partial "sharethis.html" . }}
-                                     {{ end }}
-                                </div>
-                                <div class="content" style="font-family: 'Roboto', sans-serif;">
-                                    {{ .Content }}
-                                </div>
+                                <hr class="is-marginless">
                             </div>
-                        </article>
+
+                            {{ if .Params.categories }}
+                            <div class="tags">
+                                {{ range .Params.categories }}
+                                <span class="tag is-primary is-light">{{ . }}</span>
+                                {{ end }}
+                                {{range .Params.tags}}
+                                <span class="tag is-info is-light">{{ . }}</span>
+                                {{end}}
+
+                            </div>
+                            {{ end }}
+                            <div class="content ">
+                                {{ if .Params.Share }}
+                                {{ partial "sharethis.html" . }}
+                                {{ end }}
+                            </div>
+                            <div class="content" style="font-family: 'Roboto', sans-serif;">
+                                {{ .Content }}
+                            </div>
+                        </div>
+                    </article>
                     <!-- </div> -->
                     {{ if .Params.Comments }}
-                        {{ partial "disqus.html" . }}
+                    {{ partial "disqus.html" . }}
                     {{ end }}
                 </div>
 
