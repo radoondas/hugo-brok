@@ -1,2 +1,2 @@
 # hugo-brok
-Blogging theme for Hugo static site generator
+Website theme for my site located at [radoondas.io](https://www.radoondas.io)

@@ -5,7 +5,6 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-three-quarters">
-                    <!-- <div class="box"> -->
                     <article class="media">
                         <div class="media-content">
                             <div class="content">
@@ -31,29 +30,34 @@
                                 <hr class="is-marginless">
                             </div>
 
-                            {{ if .Params.categories }}
+                            {{ if or (.Params.categories) (.Params.tags) }}
                             <div class="tags">
+                            {{ if .Params.categories }}
                                 {{ range .Params.categories }}
-                                <span class="tag is-primary is-light">{{ . }}</span>
+                                    <span class="tag is-primary is-light">{{ . }}</span>
                                 {{ end }}
-                                {{range .Params.tags}}
-                                <span class="tag is-info is-light">{{ . }}</span>
-                                {{end}}
+                            {{ end -}}
 
+                            {{- if .Params.tags }}
+                                {{range .Params.tags}}
+                                    <span class="tag is-info is-light">{{ . }}</span>
+                                {{ end }}
+                            {{ end -}}
                             </div>
                             {{ end }}
+
                             <div class="content ">
                                 {{ if .Params.Share }}
                                 {{ partial "sharethis.html" . }}
                                 {{ end }}
                             </div>
-                            <div class="content" style="font-family: 'Roboto', sans-serif;">
+                            <div class="content">
                                 {{ .Content }}
                             </div>
                         </div>
                     </article>
-                    <!-- </div> -->
-                    {{ if .Params.Comments }}
+
+                    {{-  if .Params.Comments }}
                     {{ partial "disqus.html" . }}
                     {{ end }}
                 </div>

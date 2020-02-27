@@ -28,9 +28,5 @@
 {{- if .Site.Params.elasticSiteSearch.enable  }}
 {{- .Site.Params.elasticSiteSearch.script | safeHTML -}}
 {{- end -}}
-
-{{- if .Site.Params.google.analytics -}}
-{{- partial "analyticstracking.html" . -}}
-{{- end -}}
 </body>
 </html>

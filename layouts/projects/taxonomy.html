@@ -1,0 +1,43 @@
+{{- partial "header.html" . -}}
+
+<main class="Site-content">
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-three-quarters">
+                    {{- $taxonomies := .Data.Plural -}}
+                    {{- if eq $taxonomies "projects" -}}
+                    {{- $prj := false -}}
+                    {{- range .Pages -}}
+                    {{- if .Params.projectFeatured -}}
+                    {{- $prj = true -}}
+                    {{- end -}}
+                    {{- end -}}
+
+                    {{ if $prj }}
+                    <h1 class="title is-4 has-text-grey-dark is-uppercase" style="font-family: 'Cutive Mono', monospace;">Featured</h1>
+                    {{- range first 2 (where .Pages.ByDate.Reverse ".Params.projectfeatured" true) -}}
+                    {{- partial "widgets/post-list-featured.html"  . -}}
+                    {{- end -}}
+                    {{- end -}}
+                    {{ end }}
+
+                    <h1 class="title is-4 has-text-grey-dark is-uppercase" style="font-family: 'Cutive Mono', monospace;">Posts</h1>
+                    {{- range .Paginator.Pages -}}
+                    {{- partial "widgets/post-list.html" . -}}
+                    {{ end }}
+                    <!-- pagination definition -->
+                    {{- partial "pagination.html" . -}}
+                </div>
+
+                <div class="column">
+                    <div class="box">
+                        {{- partial "sidebar.html" . -}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+{{- partial "footer.html" . -}}
