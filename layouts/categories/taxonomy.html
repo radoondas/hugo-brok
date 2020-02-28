@@ -8,14 +8,14 @@
                     <!--                Featured category articles -->
                     {{- $taxonomies := .Data.Plural -}}
                     {{- if eq $taxonomies "categories" -}}
-                    {{ $var := false }}
+                    {{- $cats := false -}}
                     {{- range .Pages -}}
-                    {{ if .Params.categoryFeatured }}
-                    {{ $var = true }}
-                    {{ end }}
-                    {{ end }}
+                    {{- if .Params.categoryFeatured -}}
+                    {{- $cats = true -}}
+                    {{- end -}}
+                    {{- end -}}
 
-                    {{ if $var }}
+                    {{ if $cats }}
                     <h1 class="title is-4 has-text-grey-dark is-uppercase" style="font-family: 'Cutive Mono', monospace;">Featured</h1>
                     {{- range first 2 (where .Pages.ByDate.Reverse ".Params.categoryfeatured" true) -}}
                     {{- partial "widgets/post-list-featured.html"  . -}}
