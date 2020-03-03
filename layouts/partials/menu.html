@@ -23,11 +23,7 @@
                     <div class="navbar-dropdown is-boxed">
                         {{ range .Site.Menus.dropdown }}
                         <a class="navbar-item has-text-grey-darker has-text-weight-bold" style="font-family: 'Cutive Mono', monospace;" href="{{ .URL }}">{{ .Name }}</a>
-                        {{end}}
-<!--                        <hr class="navbar-divider">-->
-<!--                        <a class="navbar-item has-text-grey-darker has-text-weight-bold" style="font-family: 'Cutive Mono', monospace;">-->
-<!--                            Report an issue-->
-<!--                        </a>-->
+                        {{ end }}
                     </div>
                 </div>
             </div>

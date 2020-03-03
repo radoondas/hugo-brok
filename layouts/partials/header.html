@@ -51,7 +51,7 @@
     <script src="{{ .Site.BaseURL }}js/main.js"></script>
 
     {{- if .Site.Params.google.analytics.enabled -}}
-        {{ partial "widgets/analyticstracking.html" . }}
+    {{ partial "widgets/analyticstracking.html" . }}
     {{- end -}}
 </head>
 
@@ -62,7 +62,7 @@
             <div class="container">
                 <!-- <div class="content"> -->
                 <nav class="navbar">
-                    {{ if .Site.Params.headerEnableFollowme -}}
+                    {{ if or (.Site.Params.headerEnableFollowme) (.Site.Params.elasticSiteSearch.enable) }}
                     <div class="navbar-menu">
                         {{- if .Site.Params.elasticSiteSearch.enable -}}
                         <div class="navbar-item navbar-start">
@@ -70,17 +70,18 @@
                                    autocomplete="off" autocorrect="off" autocapitalize="off">
                         </div>
                         {{ end }}
+                        {{ if .Site.Params.headerEnableFollowme -}}
                         <div class="navbar-end">
                             {{ range .Site.Params.social -}}
                             <a class="navbar-item" href="{{ .url }}" target="_blank"><i class="{{ .icon }} fa-1x"></i></a>
                             {{ end -}}
                         </div>
+                        {{ end }}
                     </div>
                     {{ end }}
                 </nav>
             </div>
         </div>
-
         <div class="hero-body has-background-grey-lighter">
             <div class="container has-text-centered">
                 <a class="has-text-centered">
