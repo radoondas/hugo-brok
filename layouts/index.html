@@ -5,13 +5,14 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-three-quarters">
-<!--                    Featured post-->
-                    {{ range first 2 (where .Site.Pages.ByDate.Reverse "Params.featured" true) }}
-                    <a href="{{ .Permalink }}"><h1> {{ .Title }}</h1></a>
-                    {{ end }}
-
+                    <div class="content">
+                        {{ .Content }}
+                    </div>
                     <hr>
-                    {{ .Content }}
+                    <h4 class="title is-4 has-text-grey-dark" style="font-family: 'Cutive Mono', monospace;">Featured Posts</h4>
+                    {{ range first 2 (where .Site.Pages.ByDate.Reverse "Params.featured" true) }}
+                        {{- partial "widgets/post-list-short.html" . -}}
+                    {{ end }}
                 </div>
                 <div class="box">
                     {{- partial "sidebar.html" . -}}

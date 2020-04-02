@@ -15,14 +15,14 @@
                     {{- end -}}
 
                     {{ if $prj }}
-                    <h1 class="title is-4 has-text-grey-dark is-uppercase" style="font-family: 'Cutive Mono', monospace;">Featured</h1>
+                    <h4 class="title is-4 has-text-grey-dark is-uppercase" style="font-family: 'Cutive Mono', monospace;">Featured</h4>
                     {{- range first 2 (where .Pages.ByDate.Reverse ".Params.projectfeatured" true) -}}
                     {{- partial "widgets/post-list-featured.html"  . -}}
                     {{- end -}}
                     {{- end -}}
                     {{ end }}
 
-                    <h1 class="title is-4 has-text-grey-dark is-uppercase" style="font-family: 'Cutive Mono', monospace;">Posts</h1>
+                    <h4 class="title is-4 has-text-grey-dark is-uppercase" style="font-family: 'Cutive Mono', monospace;">Posts</h4>
                     {{- range .Paginator.Pages -}}
                     {{- partial "widgets/post-list.html" . -}}
                     {{ end }}
