@@ -9,10 +9,8 @@
                         <div class="media-content">
                             <div class="content">
                                 <h1 class="title is-2 has-text-info" style="font-family: 'Cutive Mono', monospace;" >{{ .Title }}</h1>
-                                <!--                                    <strong>Author: {{ .Params.Author }}</strong> <br>-->
-                                <strong>Author:</strong> {{ .Params.Author }} <br>
+                                <!--                                <strong>Author:</strong> {{ .Params.Author }} <br>-->
                                 <hr class="is-marginless">
-
                                 <div class="columns is-1 is-size-6 is-marginless">
                                     <div class="column is-narrow">
                                         <i class="fas fa-clock fa-1x has-text-primary">&nbsp;&nbsp;</i>Reading {{ .ReadingTime }}
@@ -32,17 +30,17 @@
 
                             {{ if or (.Params.categories) (.Params.tags) }}
                             <div class="tags">
-                            {{ if .Params.categories }}
+                                {{ if .Params.categories }}
                                 {{ range .Params.categories }}
-                                    <span class="tag is-primary is-light">{{ . }}</span>
+                                <span class="tag is-primary is-light">{{ . }}</span>
                                 {{ end }}
-                            {{ end -}}
+                                {{ end -}}
 
-                            {{- if .Params.tags }}
+                                {{- if .Params.tags }}
                                 {{range .Params.tags}}
-                                    <span class="tag is-info is-light">{{ . }}</span>
+                                <span class="tag is-info is-light">{{ . }}</span>
                                 {{ end }}
-                            {{ end -}}
+                                {{ end -}}
                             </div>
                             {{ end }}
 
@@ -51,7 +49,7 @@
                                 {{ partial "sharethis.html" . }}
                                 {{ end }}
                             </div>
-                            <div class="content has-text-justified">
+                            <div class="content">
                                 {{ .Content }}
                             </div>
                         </div>
