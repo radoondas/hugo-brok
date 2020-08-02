@@ -1,7 +1,7 @@
 
 <div class="content">
     <h4 class="title has-text-info is-4" style="font-family: 'Cutive Mono', monospace;">Recent posts</h4>
-    {{ range first 4 .Site.Pages.ByDate.Reverse  }}
+    {{ range first 4 .Site.RegularPages.ByDate.Reverse  }}
     <!--    <a class="has-text-link" href="{{ .Permalink }}">{{ .Title }}</a>, <small>{{ .Date.Format .Site.Params.DateForm }}</small><br>-->
     <a class="has-text-link" href="{{ .Permalink }}">{{ .Title | safeHTML | truncate 30 }}</a>, <small>{{ .Date.Format .Site.Params.DateForm }}</small><br>
     {{ end }}
