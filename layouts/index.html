@@ -10,7 +10,8 @@
                     </div>
                     <hr>
                     <h4 class="title is-4 has-text-grey-dark" style="font-family: 'Cutive Mono', monospace;">Featured Posts</h4>
-                    {{ range first 2 (where .Site.Pages.ByDate.Reverse "Params.featured" true) }}
+<!--                    TODO: make number of featured posts configurable-->
+                    {{ range first 3 (where .Site.Pages.ByDate.Reverse "Params.featured" true) }}
                     {{- partial "widgets/post-list-short.html" . -}}
                     {{ end }}
                 </div>
