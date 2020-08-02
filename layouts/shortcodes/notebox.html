@@ -1,4 +1,4 @@
 <div class="notification {{ if .Get `color`}} {{ .Get `color` }}{{ end }}">
     {{ if .Get "title" }}<h5 class="title is-5">{{ .Get "title" }}</h5> {{ end }}
-    {{ .Inner }}
+    <i class="fas fa-info-circle"></i> {{ .Inner }}
 </div>
