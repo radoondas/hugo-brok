@@ -8,8 +8,8 @@ description = "You know, for sharing"
 homepage = "https://github.com/radoondas/hugo-brok"
 tags = [ "blog", "personal" ]
 features = []
-min_version = "0.59.0"
+min_version = "0.73.0"
 
 [author]
   name = "Rado Ondas"
-  homepage = "http://radoondas.io"
+  homepage = "https://radoondas.io"
