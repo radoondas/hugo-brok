@@ -2,19 +2,6 @@ html {
   font-size: 110%;
 }
 
-/*body {*/
-  /*font-family: 'Lato', sans-serif;*/
-  /*  font-size: 15px;*/
-  /*  font-size: 0.9375rem;*/
-    /*font-family: "Open sans", Helvetica, Arial, sans-serif;*/
-    /*color: #666666;*/
-    /*padding: 0;*/
-/*}*/
-
-/* .title, .subtitle {
-  font-family: 'Raleway', sans-serif;
-} */
-
 .center {
     display: flex;
     justify-content: center;
