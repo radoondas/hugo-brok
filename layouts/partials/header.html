@@ -10,7 +10,7 @@
     <title>{{ .Title }}</title>
     <link rel="shortcut icon" href="{{ .Site.BaseURL }}{{ .Site.Params.favicon }}">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
 
     <!-- Icons Fontawesome -->
     <script src="https://kit.fontawesome.com/808b1fbf24.js" crossorigin="anonymous"></script>
@@ -28,7 +28,7 @@
 
     {{- if .Site.Params.Sharethis.enabled }}
     <script type='text/javascript'
-            src='//platform-api.sharethis.com/js/sharethis.js#property={{ .Site.Params.sharethis.property }}&product=inline-share-buttons'
+            src='https://platform-api.sharethis.com/js/sharethis.js#property={{ .Site.Params.sharethis.property }}&product=inline-share-buttons'
             async='async'>
     </script>
     {{ end }}

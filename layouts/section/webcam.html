@@ -1,0 +1,17 @@
+{{ partial "header.html" . }}
+
+<main class="Site-content">
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                    <div class="content" onload="updateImage();">
+                        <img alt="Webcam High Tatras" id="webcam" src="{{ .Site.BaseURL }}/images/webcam/tatry.jpeg"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+{{ partial "footer.html" . }}
