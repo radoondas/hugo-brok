@@ -7,5 +7,5 @@ window.onload = function() {
         image.src = image.src.split("?")[0] + "?" + new Date().getTime();
     }
 
-    setInterval(updateImage, 10000);
+    setInterval(updateImage, 60000);
 };
